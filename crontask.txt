@@ -1,0 +1,2 @@
+MAILTO=kraj@twilio.com
+* * * * * /usr/bin/python /home/ubuntu/workspace/run.py >/tmp/cron_output.log 2>&1
