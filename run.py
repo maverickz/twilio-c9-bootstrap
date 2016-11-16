@@ -59,7 +59,7 @@ def receive_message():
 def send_birthday_message():
     """Parses csv file and sends birthday message for people whose birthday falls on the current day"""
     
-    birthday_list = get_birthday_list_from_file
+    birthday_list = get_birthday_list_from_file()
 
     today = date.today()
     print today
