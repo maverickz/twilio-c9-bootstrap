@@ -9,11 +9,10 @@ import json
 import csv
 import os
 
-config_file = open("config.json", "r")
-config = json.load(config_file)
 
-ACCOUNT_SID = config["account_sid"]
-AUTH_TOKEN = config["auth_token"]
+# Read account sid and auth token from environmental variables
+ACCOUNT_SID = os.getenv("ACCOUNT_SID", "")
+AUTH_TOKEN = os.getenv("AUTH_TOKEN", "")
 
 client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
@@ -48,5 +47,5 @@ def send_birthday_message():
             print "Sent birthday wishes to " + contact_detail[0] 
  
 if __name__ == "__main__":
-    port = os.getenv('PORT', 8080)	
+    port = os.getenv("PORT", 8080)	
     app.run(debug=True, host='0.0.0.0', port=int(port))
