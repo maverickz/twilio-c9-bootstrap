@@ -7,6 +7,7 @@ from datetime import date, datetime
 import twilio.twiml
 import json
 import csv
+import os
 
 config_file = open("/home/ubuntu/config.json", "r")
 config = json.load(config_file)
@@ -47,5 +48,5 @@ def send_birthday_message():
             print "Sent birthday wishes to " + contact_detail[0] 
  
 if __name__ == "__main__":
-    send_birthday_message()
-    # app.run(debug=True, host='0.0.0.0', port=8080)
+    port = os.getenv('PORT', 8080)	
+    app.run(debug=True, host='0.0.0.0', port=int(port))
