@@ -9,7 +9,7 @@ import json
 import csv
 import os
 
-config_file = open("/home/ubuntu/config.json", "r")
+config_file = open("config.json", "r")
 config = json.load(config_file)
 
 ACCOUNT_SID = config["account_sid"]
