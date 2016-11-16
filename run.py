@@ -63,6 +63,7 @@ def send_birthday_message():
 
     today = date.today()
     print today
+    birthday_wishes_sent = ""
     for contact_detail in birthday_list:
         birthday = contact_detail[2]
         date_object = datetime.strptime(birthday, "%m/%d/%Y")
@@ -72,7 +73,9 @@ def send_birthday_message():
             birthday_message = contact_detail[3]
             phone_number = contact_detail[4]
             client.messages.create(to=phone_number, from_="+14152003278", body=birthday_message)
+            birthday_wishes_sent = birthday_wishes_sent + contact_detail[0] + " " + contact_detail[1] + "\n"
             print "Sent birthday wishes to " + contact_detail[0] 
+    return birthday_wishes_sent
  
 if __name__ == "__main__":
     port = os.getenv("PORT", 8080)	
